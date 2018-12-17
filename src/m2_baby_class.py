@@ -3,8 +3,8 @@ A   Baby   class and functions that use/test it.
 
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
          Mark Hays, Amanda Stouder, Aaron Wilkin, their colleagues,
-         and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         and Zichen.
+"""  # Done: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 
 def main():
@@ -55,18 +55,40 @@ def main():
 # Here (below) are the methods that you must implement in your Baby class:
 # -----------------------------------------------------------------------------
 #
-# Constructor method (__init__)
-#     What comes in:
-#        -- self
-#        -- a string for the name of the baby
-#     What goes out:  Nothing (i.e., None).
-#     Side effects:
-#        -- Sets instance variables as needed [YOU FIGURE OUT WHAT IS NEEDED!]
-#        -- Prints 'Hello baby <your baby's name>!'
-#     Example:
-#         b = Baby('McKinley')   causes the following to be printed:
-#               Hello baby McKinley!
-#
+class Baby(object):
+    # Constructor method (__init__)
+    #     What comes in:
+    #        -- self
+    #        -- a string for the name of the baby
+    #     What goes out:  Nothing (i.e., None).
+    #     Side effects:
+    #        -- Sets instance variables as needed [YOU FIGURE OUT WHAT IS NEEDED!]
+    #        -- Prints 'Hello baby <your baby's name>!'
+    #     Example:
+    #         b = Baby('McKinley')   causes the following to be printed:
+    #               Hello baby McKinley!
+    #
+
+    def __init__(self,name):
+        self.n=name
+        print("Hello baby"+self.n+"!")
+        self.call=0
+
+
+    def feed_baby(self):
+        print("Thank you for feeding baby {}!".format(self.n))
+        self.call=0
+
+
+    def hour_passes(self):
+        if self.call==0:
+            print("Baby"+self.n+"is sleeping.")
+        if self.call==1:
+            print('Baby {} is awake.  Time for food.'.format(self.n))
+        if self.call>=3:
+            print('Baby {} is CRYING uncontrollably!  Feed the Baby!'.format(self.n))
+        self.call = self.call + 1
+
 # feed_baby
 #     What comes in:
 #        -- self
